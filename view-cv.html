@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohsin Raza — CV</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --clr-bg-primary: #0d1117;
+      --clr-bg-secondary: #161b22;
+      --clr-accent: #58a6ff;
+      --clr-accent-strong: #79c0ff;
+      --clr-border: #30363d;
+      --clr-text-primary: #e6edf3;
+      --clr-text-secondary: #8b949e;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--clr-bg-primary);
+      color: var(--clr-text-primary);
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .cv-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: var(--clr-bg-secondary);
+      border-bottom: 1px solid var(--clr-border);
+      flex-shrink: 0;
+    }
+
+    .cv-toolbar h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .btn-primary {
+      background-color: var(--clr-accent);
+      color: var(--clr-bg-primary);
+      border-color: var(--clr-accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--clr-accent-strong);
+      border-color: var(--clr-accent-strong);
+      box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--clr-accent);
+      border-color: var(--clr-border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--clr-accent);
+      box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
+    }
+
+    .cv-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .cv-viewer {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
+
+    .cv-viewer embed {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      .cv-toolbar {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .cv-actions {
+        width: 100%;
+      }
+      .cv-actions .btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-toolbar">
+    <h1><i class="fa-solid fa-file-pdf" style="color: var(--clr-accent); margin-right: 0.5rem;"></i>Mohsin Raza — CV</h1>
+    <div class="cv-actions">
+      <a href="cv/cvmohsin-raza-cv.pdf.pdf" download class="btn btn-primary">
+        <i class="fa-solid fa-download"></i> Save / Download
+      </a>
+      <a href="index.html" class="btn btn-outline">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+    </div>
+  </div>
+
+  <div class="cv-viewer">
+    <embed src="cv/cvmohsin-raza-cv.pdf.pdf" type="application/pdf" width="100%" height="100%" />
+  </div>
+
+  <script>
+    (function () {
+      const setViewerHeight = () => {
+        const toolbar = document.querySelector('.cv-toolbar');
+        const viewer = document.querySelector('.cv-viewer');
+        viewer.style.height = (window.innerHeight - toolbar.offsetHeight) + 'px';
+      };
+      setViewerHeight();
+      window.addEventListener('resize', setViewerHeight);
+    })();
+  </script>
+
+</body>
+</html>
